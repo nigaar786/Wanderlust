@@ -1,0 +1,65 @@
+<% layout('/layouts/boilerplate') %>
+<body>
+    <form action="/listings/<%= listing._id %>?_method=PUT" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-8 offset-2">
+                
+                <div class="mb-3">
+                    <label for="title" class="form-label" style="color: #fe424d;">Title</label>
+                    <input type="text" name="listing[title]" value="<%= listing.title %>" class="form-control" required>
+                    <div class="invalid-feedback">Title should be required</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label" style="color: #fe424d;">Description</label>
+                    <textarea name="listing[description]" class="form-control" required><%= listing.description %></textarea>
+                    <div class="invalid-feedback">Deacription should be required</div>
+                </div>
+
+                <div class="mb-3">
+                    Original Listing Image <br>
+                    <img src="<%= originalImageUrl %>" alt="original img">
+                    
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label" style="color: #fe424d;">Image Link</label>
+                    <input type="file" name="listing[image][url]"  class="form-control">
+                    
+                </div>
+
+                <div class="mb-3">
+                    <label for="category" class="form-label" style="color: #fe424d;">Category</label>
+                    <input name="listing[category]"  class="form-control" required><%= listing.category %></input>
+                    <div class="invalid-feedback">Category should be required</div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label" style="color: #fe424d;">Price</label>
+                        <input type="Number" name="listing[price]" value="<%= listing.price %>" class="form-control" required>
+                        <div class="invalid-feedback">Price should be required</div>
+                    </div>
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label" style="color: #fe424d;">Country</label>
+                        <input type="text" name="listing[country]" value="<%= listing.country %>" class="form-control" required>
+                        <div class="invalid-feedback">Country name should be required</div>
+                    </div>
+                </div>    
+                
+                <div class="mb-3">
+                    <label for="location" class="form-label" style="color: #fe424d;">Location</label>
+                    <input type="text" name="listing[location]" value="<%= listing.location %>" class="form-control" required>
+                    <div class="invalid-feedback">Location should be required</div>
+                </div>
+
+                <button type="submit" class="btn btn-dark edit-btn">Edit</button>
+            
+            </div>
+        </div>
+
+        
+    
+    </form>
+    
+</body>
