@@ -96,6 +96,10 @@ app.use((req,res,next)=>{
     next();
 });
 
+//Root Route========
+app.get('/',(req,res)=>{
+    res.render("users/login.ejs");
+});
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
